@@ -17,6 +17,15 @@ background-size: cover;
 width: auto;
 `
 
+const ResponsiveJumbotons = styled(Jumbotron)`
+padding-top: 20%;
+padding-bottom: 20%;
+`
+
+const ResponsiveParallaxLayer = styled(ParallaxLayer)`
+padding-bottom: 20%;
+`
+
 
 const Movingstuff = Keyframes.Spring(async next =>{
     while(true){
@@ -68,17 +77,14 @@ export default class IndexPage extends React.Component{
     render(){
     return(
     <React.Fragment>
-
-    <Parallax pages={2.5} ref={this.parallax}>  
+    <Parallax pages={3} ref={this.parallax}>  
     <BackgroundImg offset={0} speed={0} factor={3}/>
     <ParallaxLayer offset={0.75} speed={1.5} style={{ backgroundColor: '#805E73', opacity: .9 }} />
     <ParallaxLayer offset={1.75} speed={1.5} style={{ backgroundColor: '#87BCDE', opacity: .9 }} />
-    <ParallaxLayer offset={0} speed={1}>
+    <ResponsiveParallaxLayer offset={0} speed={1}>
     <Header/>
-
-       
-        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-3 offset-2 mb-5 float-md-center">
-            <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}}>
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-3 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
+            <ResponsiveJumbotons style={{background: 'rgba(204, 204, 204, 0.8)'}} >
                 <Container>
                     <Row>
                         <Col>
@@ -98,13 +104,13 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
                         </Col>
                     </Row>
                 </Container>
-            </Jumbotron>
+            </ResponsiveJumbotons>
         </div>
-     </ParallaxLayer>
+     </ResponsiveParallaxLayer>
 
-     <ParallaxLayer offset={1.5} speed={1}>
-        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-3 offset-2 float-md-center">
-            <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}}>
+     <ResponsiveParallaxLayer offset={1.5} speed={1}>
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-3 offset-lg-2 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
+            <ResponsiveJumbotons style={{background: 'rgba(204, 204, 204, 0.8)'}}>
                 <Container>
                     <Row>
                         <Col>
@@ -124,9 +130,9 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
                         </Col>
                     </Row>
                 </Container>
-            </Jumbotron>
+            </ResponsiveJumbotons>
         </div>
-     </ParallaxLayer>
+     </ResponsiveParallaxLayer>
      </Parallax>
      </React.Fragment>
         )
