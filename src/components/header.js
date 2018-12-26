@@ -1,42 +1,35 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
-import Img from 'gatsby-image'
-import Image from './image'
+import styled from 'styled-components';
+import WeddingLogo from '../components/WeddingLogo'
+import {Container} from 'reactstrap';
+import WeddingImg from '../images/Promising.png'
 
-const Header = ({headerImage}) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-    <Img title="header" sizes={headerImage.sizes}/>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-        br
-        </Link>
-      </h1>
-    </div>
-  </div>
+
+
+const ImageContainer = styled(Container)`
+margin-bottom: 1.45rem;
+height: 55%;
+background-attachment: fixed;
+display: flex;
+align-items: center;
+justify-content: center;
+`
+
+
+
+const Header = () => (
+<div>
+
+<ImageContainer>
+    <WeddingLogo/>
+</ImageContainer>
+
+</div>
+
+
+
+
+
 )
 
-
-Header.defaultProps = {
-  headerImage: ``,
-}
-
-export default Header
+export default Header;
