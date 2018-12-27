@@ -22,7 +22,7 @@ background: none
 `
 
 const Navbar = (props) => (
-<StyledDiv>
+
     <StyledContainer>
         <StyledRow>
             <StyledColumn >
@@ -37,7 +37,7 @@ const Navbar = (props) => (
         </StyledRow>
 
     </StyledContainer>
-</StyledDiv>
+
 )
 
 export default Navbar
