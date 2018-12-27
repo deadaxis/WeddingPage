@@ -31,6 +31,11 @@ padding-top: 20%;
 padding-bottom: 20%;
 `
 
+const Responsivepages = styled.div`
+display: flex;
+`
+
+
 const ResponsiveParallaxLayer = styled(ParallaxLayer)`
 padding-bottom: 20%;
 `
@@ -92,20 +97,26 @@ export default class IndexPage extends React.Component{
     }
 
     parallax = React.createRef();
+    
     scroll = to => this.parallax.current.scrollTo(to);
     
+    
+
     render(){
+        const isMob = (val) => {
+            return(val)
+        }
     return(
     <React.Fragment>    
-        
-    <GridContainer>
-    
-    <ChildParallax pages={3} ref={this.parallax}>  
+
+    <Parallax pages={3} ref={this.parallax}>  
     <BackgroundImg offset={0} speed={0} factor={3}/>
-    <ChildNavbar/>
+   
     <ParallaxLayer offset={0.75} speed={1.5} style={{ backgroundColor: '#805E73', opacity: .9 }} />
-    <ParallaxLayer offset={1.75} speed={1.5} style={{ backgroundColor: '#87BCDE', opacity: .9 }} />
-    <ResponsiveParallaxLayer offset={0.08} speed={1}>
+    <ParallaxLayer offset={1.25} speed={1.5} style={{ backgroundColor: '#87BCDE', opacity: .9 }} />
+
+    <ParallaxLayer offset={isMob(0)} speed={1}>
+    <ChildNavbar/>
     <Header/>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
             <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}} >
@@ -130,9 +141,9 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
                 </Container>
             </Jumbotron>
         </div>
-     </ResponsiveParallaxLayer>
+     </ParallaxLayer>
 
-     <ResponsiveParallaxLayer offset={1.5} speed={1}>
+     <ParallaxLayer offset={1} speed={1}>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
             <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}}>
                 <Container>
@@ -156,10 +167,9 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
                 </Container>
             </Jumbotron>
         </div>
-     </ResponsiveParallaxLayer>
-     
-     </ChildParallax>
-     </GridContainer>
+     </ParallaxLayer>
+     </Parallax>
+    
      
      </React.Fragment>
         )
