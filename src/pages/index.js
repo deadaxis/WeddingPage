@@ -8,6 +8,7 @@ import backgroundImg from '../images/background.png'
 import {Parallax, ParallaxLayer} from 'react-spring/addons'
 import { Keyframes, animated, config } from 'react-spring'
 import Navbar from '../components/navbar'
+import {withGetScreen} from 'react-getscreen'
 
 const GridContainer = styled.div`
 display: flex;
@@ -90,7 +91,7 @@ const Movingstuff = Keyframes.Spring(async next =>{
     }
 })
 
-export default class IndexPage extends React.Component{
+class IndexPage extends React.Component{
 
     constructor(props){
         super(props)
@@ -103,19 +104,30 @@ export default class IndexPage extends React.Component{
     
 
     render(){
-        const isMob = (val) => {
+        const isMob = (val, consumer) => {
+            if(this.props.isMobile())
+                if(consumer.includes("layer"))
+                    return 2
+                if(consumer.includes("pages"))
+                    return 4
+            if(this.props.isTablet())
+                if(consumer.includes("layer"))
+                    return 2
+                if(consumer.includes("pages"))
+                    return 4       
             return(val)
         }
     return(
     <React.Fragment>    
 
-    <Parallax pages={3} ref={this.parallax}>  
+    <Parallax pages={isMob(3, 'pages')} ref={this.parallax}> 
+     
     <BackgroundImg offset={0} speed={0} factor={3}/>
    
     <ParallaxLayer offset={0.75} speed={1.5} style={{ backgroundColor: '#805E73', opacity: .9 }} />
     <ParallaxLayer offset={1.25} speed={1.5} style={{ backgroundColor: '#87BCDE', opacity: .9 }} />
 
-    <ParallaxLayer offset={isMob(0)} speed={1}>
+    <ParallaxLayer offset={0} speed={1}>
     <ChildNavbar/>
     <Header/>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
@@ -143,7 +155,7 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
         </div>
      </ParallaxLayer>
 
-     <ParallaxLayer offset={1} speed={1}>
+     <ParallaxLayer offset={isMob(1, 'layer2')} speed={1}>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
             <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}}>
                 <Container>
@@ -176,4 +188,6 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
     }
 
 }
+
+export default withGetScreen(IndexPage)
 
