@@ -8,7 +8,8 @@ import backgroundImg from '../images/background.png'
 import {Parallax, ParallaxLayer} from 'react-spring/addons'
 import { Keyframes, animated, config } from 'react-spring'
 import Navbar from '../components/navbar'
-import {withGetScreen} from 'react-getscreen'
+import main from '../images/main.jpg'
+import promise from '../images/Promising.png'
 
 const GridContainer = styled.div`
 display: flex;
@@ -19,6 +20,14 @@ align-items: center;
 
 `
 
+const FlexContainer = styled.div`
+displau:flex;
+flex-direction: row;
+flex-wrap:wrap;
+justify-content:center;
+padding: 10px;
+`
+
 const BackgroundImg = styled(ParallaxLayer)`
 background-image: url(${backgroundImg});
 background-position: center;
@@ -27,29 +36,9 @@ background-size: cover;
 width: auto;
 `
 
-const ResponsiveJumbotons = styled(Jumbotron)`
-padding-top: 20%;
-padding-bottom: 20%;
-`
-
-const Responsivepages = styled.div`
-display: flex;
-`
-
-
-const ResponsiveParallaxLayer = styled(ParallaxLayer)`
-padding-bottom: 20%;
-`
-
 const ChildNavbar = styled(Navbar)`
 order: 1;
 flex-basis: 200px;
-`
-
-const ChildParallax = styled(Parallax)`
-order: 2;
-position: absolute;
-height: 50%;
 `
 
 
@@ -97,47 +86,30 @@ class IndexPage extends React.Component{
         super(props)
     }
 
+
     parallax = React.createRef();
     
     scroll = to => this.parallax.current.scrollTo(to);
     
+
     
 
     render(){
-        const isMob = (val, consumer) => {
-            if(this.props.isMobile())
-                if(consumer.includes("layer"))
-                    return 2
-                if(consumer.includes("pages"))
-                    return 4
-            if(this.props.isTablet())
-                if(consumer.includes("layer"))
-                    return 2
-                if(consumer.includes("pages"))
-                    return 4       
-            return(val)
-        }
     return(
-    <React.Fragment>    
+        <React.Fragment>    
 
-    <Parallax pages={isMob(3, 'pages')} ref={this.parallax}> 
-     
-    <BackgroundImg offset={0} speed={0} factor={3}/>
-   
-    <ParallaxLayer offset={0.75} speed={1.5} style={{ backgroundColor: '#805E73', opacity: .9 }} />
-    <ParallaxLayer offset={1.25} speed={1.5} style={{ backgroundColor: '#87BCDE', opacity: .9 }} />
 
-    <ParallaxLayer offset={0} speed={1}>
-    <ChildNavbar/>
-    <Header/>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
-            <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}} >
-                <Container>
-                    <Row>
-                        <Col>
-                            <Image/>
-                        </Col>
-                        <Col>
+        <ChildNavbar/>
+        <Header/>
+        <div>
+            <Jumbotron id="aboutUs" style={{background: 'rgba(204, 204, 204, 0)'}} >
+            <Container>  
+                <Row>
+                    <Col class="col-12 col-md-6">
+                             <img src={main} class="img-fluid rounded shadow border" style={{minWidth:275+'px'}}/>
+                            
+                    </Col>
+                    <Col class="col-12 col-md-6">
                             <h1>About Us</h1>
                             <p>Lorem ipsum dolor sit amet, oratio timeam discere ad vel, dicam feugiat interpretaris pro eu. Iisque praesent splendide ei pro, dolor omittam ut est, vel scripta nonumes percipitur an. Ne sint commodo prodesset mei. Id zril scripta erroribus mel. Sit et doctus deserunt.
 
@@ -148,16 +120,15 @@ His simul tollit in, qui nihil praesent id. Phaedrum iudicabit interpretaris nam
 Dicam consul repudiare te vim, mel quod vero tacimates ei. Vel omnes tritani eloquentiam cu. Verear quaeque has no, nam ex prima reprimique. Cu vivendo hendrerit mediocritatem has, pri quando sanctus dolorem eu. Mucius labores molestie an nam. Mea hinc adipiscing cu. Simul tantas prodesset ei quo, no sed laoreet cotidieque efficiantur.
 
 Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur eu, impetus sapientem interpretaris per id, in has ignota omnium verear. An vis modo mollis complectitur, liber aeque id vis, at vel alii assueverit. Harum interesset eam te. Nisl mazim scaevola cu per, semper reprimique ullamcorper qui te. No eam vide luptatum.</p>
-                        </Col>
-                    </Row>
-                </Container>
-            </Jumbotron>
+</Col>
+        </Row>
+        </Container>
+                        </Jumbotron>
         </div>
-     </ParallaxLayer>
 
-     <ParallaxLayer offset={isMob(1, 'layer2')} speed={1}>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-0 float-md-center">
-            <Jumbotron style={{background: 'rgba(204, 204, 204, 0.8)'}}>
+
+        <div>
+            <Jumbotron id="eventDetails" style={{background: 'rgba(204, 204, 204, 0)'}}>
                 <Container>
                     <Row>
                         <Col>
@@ -172,22 +143,19 @@ Dicam consul repudiare te vim, mel quod vero tacimates ei. Vel omnes tritani elo
 
 Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur eu, impetus sapientem interpretaris per id, in has ignota omnium verear. An vis modo mollis complectitur, liber aeque id vis, at vel alii assueverit. Harum interesset eam te. Nisl mazim scaevola cu per, semper reprimique ullamcorper qui te. No eam vide luptatum.</p>
                         </Col>
-                        <Col>
-                            <Image/>
-                        </Col>
+                        <Col class="col-12 col-md-6">
+                             <img src={main} class="img-fluid rounded shadow border" style={{minWidth:275+'px'}}/>                           
+                    </Col>
                     </Row>
                 </Container>
             </Jumbotron>
         </div>
-     </ParallaxLayer>
-     </Parallax>
-    
-     
-     </React.Fragment>
+       
+        </React.Fragment>    
         )
     }
 
 }
 
-export default withGetScreen(IndexPage)
+export default IndexPage
 

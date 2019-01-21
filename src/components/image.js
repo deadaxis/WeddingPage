@@ -21,14 +21,14 @@ const Image = () => (
       query {
         placeholderImage: file(relativePath: { eq: "main.jpg" }) {
           childImageSharp {
-            fixed(width: 533, height: 711, quality: 80) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 533, maxHeight: 711, quality: 80) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     `}
-    render={data => <Img fixed={data.placeholderImage.childImageSharp.fixed} />}
+    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
   />
 )
 
