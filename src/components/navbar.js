@@ -53,10 +53,10 @@ const Navbar = (props) => (
     <StyledContainer>
         <StyledRow>
             <StyledColumn >
-                <StyleButton outline color='warning'><StyledAnchor href="#aboutUs">Home</StyledAnchor></StyleButton>
+                <StyleButton outline color='warning' onClick={() => props.onPress(.4)}>Home</StyleButton>
             </StyledColumn>
             <StyledColumn>
-                <StyleButton outline color='warning'><StyledAnchor href="#eventDetails">Event Details</StyledAnchor></StyleButton>
+                <StyleButton outline color='warning' onClick={() => props.onPress(1.2)}>Event Details</StyleButton>
             </StyledColumn>
             <StyledColumn>
                 <StyleButton outline color='warning'>Credits</StyleButton>
