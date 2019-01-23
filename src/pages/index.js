@@ -96,10 +96,12 @@ class IndexPage extends React.Component{
     render(){
     return(
         <React.Fragment>    
-
-
+        <Parallax pages={3}>  
         <ChildNavbar/>
         <Header/>
+        <ParallaxLayer offset={0} speed={.8} style={{ backgroundColor: '#805E73' }} />
+        <ParallaxLayer offset={1.5} speed={.8} style={{ backgroundColor: '#87BCDE' }} />
+        <ParallaxLayer offset={0} speed={1}>
         <div>
             <Jumbotron id="aboutUs" style={{background: 'rgba(204, 204, 204, 0)'}} >
             <Container>  
@@ -124,8 +126,9 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
         </Container>
                         </Jumbotron>
         </div>
+        </ParallaxLayer>
 
-
+        <ParallaxLayer offset={1} speed={1}>
         <div>
             <Jumbotron id="eventDetails" style={{background: 'rgba(204, 204, 204, 0)'}}>
                 <Container>
@@ -149,7 +152,8 @@ Ad justo discere abhorreant duo, pro erant labores ut. Per hinc ludus scribentur
                 </Container>
             </Jumbotron>
         </div>
-       
+        </ParallaxLayer>
+        </Parallax>  
         </React.Fragment>    
         )
     }
