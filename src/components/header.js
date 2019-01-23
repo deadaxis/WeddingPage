@@ -20,8 +20,8 @@ justify-content: center;
 const Header = () => (
 <div>
 
-<ImageContainer>
-    <WeddingLogo/>
+<ImageContainer>  
+    <img src={WeddingImg} class="img-fluid" style={{minWidth:275+'px'}}/>
 </ImageContainer>
 
 </div>

@@ -9,7 +9,6 @@ import {Parallax, ParallaxLayer} from 'react-spring/addons'
 import { Keyframes, animated, config } from 'react-spring'
 import Navbar from '../components/navbar'
 import main from '../images/main.jpg'
-import promise from '../images/Promising.png'
 
 const GridContainer = styled.div`
 display: flex;
